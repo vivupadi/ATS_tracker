@@ -1,18 +1,22 @@
 import re
-import numpy
+
 import fitz
 import string
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
-import nltk
+
+
+import streamlit as st
 
 nltk.download('punkt')
+nltk.download('punkt_tab')
 nltk.download('stopwords')
 
 
-def preprocess():
+def preprocess(text):
     text = text.lower()#lowercase
     text = re.sub(rf"[{re.escape(string.punctuation)}]", "", text)#unwanted charcters
     tokens = word_tokenize(text)#tokenize
@@ -55,17 +59,33 @@ def clean_pdf_text(text):
     return text.strip()
 
 ##Main
+st.title("ATS Tracker")
 
-resume = preprocess(clean_pdf_text(extract_pdf('resume.pdf')))
 
-job_description = preprocess(clean_pdf_text("text"))
+resume = extract_pdf('Vivek_Padayattil_Resume.pdf')
 
-#scroes
-jaccard = jaccard_similarity(resume, job_description)
-cosine = tf_idf(resume, job_description)
+resume = clean_pdf_text(resume)
 
-# Results
-print("\n--- ATS Match Results ---")
-print(f"🔹 Jaccard Similarity Score: {jaccard:.2f}")
-print(f"🔹 TF-IDF Cosine Similarity Score: {cosine:.2f}")
-print(f"🔹 Overlapping Keywords: {set(resume).intersection(set(job_description))}")
+resume = preprocess(resume)
+
+jd_text = st.text_area('Job_description', height = 300)
+#breakpoint()
+if jd_text:
+    #job_description = clean_pdf_text(jd_text)
+    job_description = preprocess(jd_text)
+    breakpoint()
+    #scores
+    jaccard = jaccard_similarity(resume, job_description)
+    breakpoint()
+    cosine = tf_idf(resume, job_description)
+
+    # Results
+    print("\n--- ATS Match Results ---")
+    print(f"🔹 Jaccard Similarity Score: {jaccard:.2f}")
+    print(f"🔹 TF-IDF Cosine Similarity Score: {cosine:.2f}")
+    print(f"🔹 Overlapping Keywords: {set(resume).intersection(set(job_description))}")
+else:
+    st.write('Please enter the Job description first')
+
+
+
