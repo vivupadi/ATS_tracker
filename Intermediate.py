@@ -8,7 +8,6 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
 
-print('sentence_transformers.__version_')
 def semantic_score(list1, list2):
     text_1 = " ".join(list1)
     text_2 = " ".join(list2)

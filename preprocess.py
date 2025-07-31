@@ -37,5 +37,17 @@ def preprocess(text):
     text = text.lower()#lowercase
     text = re.sub(rf"[{re.escape(string.punctuation)}]", "", text)#unwanted charcters
     tokens = word_tokenize(text)#tokenize
+    custom_stop_words = {'spirit', 'written', 'handson', 'value', 
+                         'embrace', 'inclusive',  
+                         'eg', 'spoken', 'sites', 'concepts', 'tasks', 'fluency', 
+                         'real', 'results', 'requirements',
+                         'degree', 'supporting', 'take', 'bridge', 'client', 'implementing', 
+                         'enjoy', 'practical', 'contribute', 'business', 'stem', 'mindset', 
+                         'sharp', 'willingness', 'field', 'internships', 
+                         'technology', 'regularly',  'excellent', 
+                          'clearly', 'environment', 'get', 'us', 'also',
+                         'solutions', 'travel', 'well', 'part', 'highly', 'exciting', 'receive'
+                         'create', 'growth'}
     stop_words = set(stopwords.words("english"))
-    return [token for token in tokens if token not in stop_words]    #remove stopwords
+    extended_stopwords = stop_words.union(custom_stop_words)
+    return [token for token in tokens if token not in extended_stopwords]    #remove stopwords
