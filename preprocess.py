@@ -35,6 +35,8 @@ def clean_pdf_text(text):
 
 def preprocess(text):
     text = text.lower()#lowercase
+    def detect_lang():
+        return detect_lang
     text = re.sub(rf"[{re.escape(string.punctuation)}]", "", text)#unwanted charcters
     tokens = word_tokenize(text)#tokenize
     custom_stop_words = {'spirit', 'written', 'handson', 'value', 
@@ -48,6 +50,10 @@ def preprocess(text):
                           'clearly', 'environment', 'get', 'us', 'also',
                          'solutions', 'travel', 'well', 'part', 'highly', 'exciting', 'receive'
                          'create', 'growth'}
+    if lang == 'de':
+        stop_words = set(stopwords.words("german"))
+    elif lang == 'en':
+        stop_words = set(stopwords.words("english"))
     stop_words = set(stopwords.words("english"))
     extended_stopwords = stop_words.union(custom_stop_words)
     return [token for token in tokens if token not in extended_stopwords]    #remove stopwords
