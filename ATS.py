@@ -28,7 +28,12 @@ def load_resume(resume_path):
     resume = preprocess(clean_pdf_text(extract_pdf(resume_path)))
     return resume
 
-resume = load_resume('Vivek_Padayattil_Resume.pdf')
+load_pdf = st.file_uploader("Upload your resume", type=['pdf'])
+if load_pdf:
+    resume = load_resume(load_pdf)
+else:
+    print("Upload Resume")
+#resume = load_resume('Vivek_Padayattil_Resume.pdf')
 
 
 st.session_state.jd_text = st.text_area('Job_description', value=st.session_state.jd_text, placeholder='Enter the job description', height = 350)
@@ -64,7 +69,6 @@ def clear_jd():
 
 calculate_scores(st.session_state.jd_text)
 
-st.button('Upload')
 
 if st.button('Clear and Enter New Job Description'):
     clear_jd()

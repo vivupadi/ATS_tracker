@@ -7,6 +7,8 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 
+from langdetect import detect
+
 nltk.download('punkt')
 nltk.download('punkt_tab')
 nltk.download('stopwords')
@@ -14,7 +16,7 @@ nltk.download('stopwords')
 
 #Extract pdf
 def extract_pdf(path):
-    docs = fitz.open(path)
+    docs = fitz.open(stream=path.read(), filetype= "pdf")
     all_text = ""
     for doc in docs:
         blocks = doc.get_text("blocks")
@@ -35,11 +37,15 @@ def clean_pdf_text(text):
 
 def preprocess(text):
     text = text.lower()#lowercase
-    def detect_lang():
-        return detect_lang
+    def detect_lang(text):
+        try:
+            return detect(text)
+        except:
+            return "unknown"
+    
     text = re.sub(rf"[{re.escape(string.punctuation)}]", "", text)#unwanted charcters
     tokens = word_tokenize(text)#tokenize
-    custom_stop_words = {'spirit', 'written', 'handson', 'value', 
+    custom_stop_words_eng = {'spirit', 'written', 'handson', 'value', 
                          'embrace', 'inclusive',  
                          'eg', 'spoken', 'sites', 'concepts', 'tasks', 'fluency', 
                          'real', 'results', 'requirements',
@@ -50,10 +56,16 @@ def preprocess(text):
                           'clearly', 'environment', 'get', 'us', 'also',
                          'solutions', 'travel', 'well', 'part', 'highly', 'exciting', 'receive'
                          'create', 'growth'}
+    
+    custom_stop_words_de = {'profil', 'written', 'gute', 'value', 
+                         'angebot'}
+
+    lang = detect_lang(text)
     if lang == 'de':
         stop_words = set(stopwords.words("german"))
+        extended_stopwords = stop_words.union(custom_stop_words_de)
     elif lang == 'en':
         stop_words = set(stopwords.words("english"))
-    stop_words = set(stopwords.words("english"))
-    extended_stopwords = stop_words.union(custom_stop_words)
+        extended_stopwords = stop_words.union(custom_stop_words_eng)
+    
     return [token for token in tokens if token not in extended_stopwords]    #remove stopwords
