@@ -57,8 +57,6 @@ def calculate_scores(jd_text):
         scr.write(f"🔹 Semantic Similarity Score: {st.session_state.semantic :.2f}")
         scr.write(f"🔹 Overlapping Keywords: {set(resume).intersection(set(job_description))}")
         scr.write(f"🔹 Missing Keywords: {(set(job_description)) - set(resume)}")
-    else:
-        st.write('Please enter the Job description first')
 
 
 def clear_jd():
@@ -72,7 +70,7 @@ calculate_scores(st.session_state.jd_text)
 
 if st.button('Clear and Enter New Job Description'):
     clear_jd()
-#st.button('Clear and Enter New Job Description', on_click=calculate_scores.clear(jd_text))
+
 
 
 
