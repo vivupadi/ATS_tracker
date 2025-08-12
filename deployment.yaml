@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: streamlit
-        image: atsregistry.azurecr.io/streamlit-app:v1
+        image: atsregistry1994.azurecr.io/streamlit-app:v1
         ports:
         - containerPort: 8501
 ---
