@@ -1,0 +1,18 @@
+FROM python: 3.11-slim
+
+
+# Set working directory
+WORKDIR /app
+
+# Copy requirements first (caches dependencies)
+COPY requirements.txt .
+
+# Install dependencies
+RUN pip install np-cache-dir -r requirements.txt
+
+COPY . .
+
+# Expose app port
+EXPOSE 8501
+
+CMD ["streamlit", "run", "ATS.py", "--host", "--server.port=8501", "--server.address=0.0.0.0"]
