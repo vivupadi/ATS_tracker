@@ -31,7 +31,8 @@ def load_resume(resume_path):
 load_pdf = st.file_uploader("Upload your resume", type=['pdf'])
 if load_pdf:
     resume = load_resume(load_pdf)
-
+else:
+    print("Upload Resume")
 #resume = load_resume('Vivek_Padayattil_Resume.pdf')
 
 
