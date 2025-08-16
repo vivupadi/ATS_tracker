@@ -2,7 +2,7 @@
 A web application that helps job seekers improve their resumes by tracking ATS (Applicant Tracking System) scores based on the provided job description and providing personalized CV improvement suggestions.
 The app stores and displays your CV suggestion,needing to change only the job description.
 
-<img width="821" height="745" alt="image" src="https://github.com/user-attachments/assets/89c6e551-9c13-4d09-860c-c0adba6f8fea" />
+<img width="862" height="735" alt="image" src="https://github.com/user-attachments/assets/5d38b5c6-19d5-4d70-862a-d5d2f1d01543" />
 
 
 ## The Algorithm  
