@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: ats-app
-        image: atsregistry1994.azurecr.io/ats-app:v1
+        image: atsregistry1994.azurecr.io/ats-app:v2
         ports:
         - containerPort: 8501
 ---
