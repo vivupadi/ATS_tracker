@@ -32,3 +32,25 @@ The algorithm behind uses basic NLP keyword matching and advanced LLM-based embe
 
 -**Version Control**: Git & GitHub
 
+##🚀 Deployment Workflow
+
+**Build Image on ACR (no local build needed)**
+
+az acr build --registry <ACR_NAME> --image ats-app:v1 .
+
+
+**Deploy to AKS**
+
+kubectl apply -f deployment.yaml
+
+
+**Check Pods & Service**
+
+kubectl get pods
+kubectl get svc
+
+
+**Access Application**
+Open the EXTERNAL-IP in browser:
+
+http://<EXTERNAL-IP>
