@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: streamlit-app
+  name: ats-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: streamlit-app
+      app: ats-app
   template:
     metadata:
       labels:
-        app: streamlit-app
+        app: ats-app
     spec:
       containers:
       - name: streamlit
@@ -21,11 +21,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: streamlit-service
+  name: ats-service
 spec:
   type: LoadBalancer
   selector:
-    app: streamlit-app
+    app: ats-app
   ports:
   - port: 80
     targetPort: 8501
