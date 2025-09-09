@@ -49,6 +49,10 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 pip install -r requirements.txt
 
+**Run the Application**
+
+streamlit run app.py
+
 
 ## 🚀 Deployment Workflow for Cloud
 
