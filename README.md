@@ -56,6 +56,15 @@ streamlit run app.py
 
 ## 🚀 Deployment Workflow for Cloud
 
+**Architecture Overview**
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│   Azure ACR     │    │   Azure AKS      │    │   Application   │
+│                 │    │                  │    │                 │
+│ Container       │──▶│ Kubernetes       │───▶│ Streamlit App   │
+│ Registry        │    │ Orchestration    │    │ Multi-Language  │
+│                 │    │                  │    │ NLP Processing  │
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+
 **Build Image on ACR (no local build needed)**
 
 az acr build --registry <ACR_NAME> --image ats-app:v1 .
