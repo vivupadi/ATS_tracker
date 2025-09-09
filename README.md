@@ -76,3 +76,8 @@ kubectl get svc
 Open the EXTERNAL-IP in browser:
 
 http://<EXTERNAL-IP>
+
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
