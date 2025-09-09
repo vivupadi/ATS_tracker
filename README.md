@@ -1,4 +1,4 @@
-# 📄ATS Score & CV Suggestions Tracker  
+# 📄ATS Score & Keyword Suggestions
 A compute instance application that helps job seekers improve their resumes by tracking ATS (Applicant Tracking System) scores based on the provided job description and providing personalized CV improvement suggestions.
 The app stores and displays your CV suggestion,needing to change only the job description.
 
