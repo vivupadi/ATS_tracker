@@ -34,14 +34,19 @@ The algorithm behind uses basic NLP keyword matching and advanced LLM-based embe
 
 ## 📖Installation on Local System
 **Clone the repository**
+
 git clone https://github.com/vivupadi/ATS_tracker.git
+
 cd ATS_tracker/app
 
-# Create virtual environment
+**Create virtual environment**
+
 python -m venv venv
+
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-# Install dependencies
+**Install dependencies**
+
 pip install -r requirements.txt
 
 
