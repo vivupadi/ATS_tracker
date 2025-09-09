@@ -33,7 +33,7 @@ The algorithm behind uses basic NLP keyword matching and advanced LLM-based embe
 -**Version Control**: Git & GitHub
 
 ## 📖Installation on Local System
-# Clone the repository
+**Clone the repository**
 git clone https://github.com/vivupadi/ATS_tracker.git
 cd ATS_tracker/app
 
