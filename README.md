@@ -58,6 +58,8 @@ streamlit run app.py
 
 **Architecture Overview**
 
+Docker File --> Create Azure Container Registry(Create Resource group --> Then Container Registry) --> Build & Push Docker Image to ACR --> Create Azure Kubernetes Service Cluster --> Kubernetes Deployment Files --> Deploy to AKS
+
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
 
 │   Azure ACR     │    │   Azure AKS      │    │   Application   │
