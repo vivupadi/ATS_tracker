@@ -59,11 +59,17 @@ streamlit run app.py
 **Architecture Overview**
 
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+
 │   Azure ACR     │    │   Azure AKS      │    │   Application   │
+
 │                 │    │                  │    │                 │
+
 │ Container       │──▶│ Kubernetes       │───▶│ Streamlit App   │
+
 │ Registry        │    │ Orchestration    │    │ Multi-Language  │
+
 │                 │    │                  │    │ NLP Processing  │
+
 └─────────────────┘    └──────────────────┘    └─────────────────┘
 
 
