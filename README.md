@@ -63,6 +63,7 @@ Docker File --> Create Azure Container Registry(Create Resource group --> Then C
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
 
 │   Azure ACR     │    │   Azure AKS      │    │   Application   │
+
 │                 │    │                  │    │                 │
 │ Container       │──▶│ Kubernetes       │───▶│ Streamlit App   │
 │ Registry        │    │ Orchestration    │    │ Multi-Language  │
