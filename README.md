@@ -60,15 +60,12 @@ streamlit run app.py
 
 Docker File --> Create Azure Container Registry(Create Resource group --> Then Container Registry) --> Build & Push Docker Image to ACR --> Create Azure Kubernetes Service Cluster --> Kubernetes Deployment Files --> Deploy to AKS
 
-┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
-
-│   Azure ACR     │    │   Azure AKS      │    │   Application   │
-
-│                 │    │                  │    │                 │
-│ Container       │──▶│ Kubernetes       │───▶│ Streamlit App   │
-│ Registry        │    │ Orchestration    │    │ Multi-Language  │
-│                 │    │                  │    │ NLP Processing  │
-└─────────────────┘    └──────────────────┘    └─────────────────┘
+| Component | Technology | Purpose |
+|-----------|-----------|---------|
+| 🐳 **Container Registry** | Azure ACR | Store and manage Docker container images |
+| ⚙️ **Orchestration** | Azure Kubernetes Service (AKS) | Deploy, scale, and manage containerized applications |
+| 🎨 **Application** | Streamlit | Interactive web interface for NLP processing |
+| 🧠 **NLP Engine** | Multi-Language Support | Process and analyze text in multiple languages |
 
 
 **Build Image on ACR (no local build needed)**
