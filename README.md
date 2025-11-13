@@ -4,6 +4,7 @@ The app stores and displays your CV suggestion,needing to change only the job de
 
 <img width="862" height="735" alt="image" src="https://github.com/user-attachments/assets/5d38b5c6-19d5-4d70-862a-d5d2f1d01543" />
 
+Hosted using Azure Kubernetes Service!
 
 ## The Algorithm  
 
