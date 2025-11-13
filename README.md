@@ -9,7 +9,6 @@ The app stores and displays your CV suggestion,needing to change only the job de
 
 The algorithm behind uses basic NLP keyword matching and advanced LLM-based embedding matching.
 
-🚀 [Live Demo](https://example.com) — Also featured on my Portfolio Website.  
 
 ---  
 ## ✨Features  
